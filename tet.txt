@@ -1,0 +1,18 @@
+if($('svg')){
+	                		$('svg').remove();
+	                	};
+									addHighlight(json.highlight.page_id,json.highlight.hightlight_start,json.highlight.highlight_end,0,0);
+									if(json.highlight.page_id){
+										var page_container = $('#pageContainer' + json.highlight.page_id + " .textLayer");
+										if(page_container.length > 0){
+											var focus_node = page_container.children("div").eq(json.highlight.highlight_end);
+										}
+										var line = '<path d="M ' + ($(that).offset().left) + ' ' + ($(that).offset().top + 80) + ' '
+																			+ 'L ' + (focus_node.offset().left) + ' ' + (focus_node.offset().top) + ' '
+																			+ '" fill="transparent" stroke="black"></path>';
+										var svg = '<svg version="1.1" baseProfile="full" width="' + $('html').width()
+															+ '" height="' + $('html').height()
+															+ '" xmlns="http://www.w3.org/2000/svg" style="pointer-events: none; position: absolute; top: 0;">'
+															+ line + '</svg>';
+										$(svg).appendTo($('body'));
+									};
